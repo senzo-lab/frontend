@@ -1,0 +1,50 @@
+<!-- 
+    Building supplies website
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Navigation Bar</title>
+
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/all.css">
+
+    <!-- styling -->
+    <style>
+        .icon-bar {
+            width: 100%;
+            background-color: #141E61; /*nav backgound*/
+            overflow: auto;
+        }
+
+        .icon-bar a {
+            float: left; /*display links horizontally*/
+            text-align: center;
+            width: 20%;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: #EEEEEE; /* icon color */
+            font-size: 36px; /* Icon Size */
+        }
+
+        .icon-bar a:hover {
+            background-color: #0F044C; /* hover bg color */
+        }
+
+        .active {
+            background-color: #787A91; /* active nav link */
+        }
+    </style>
+</head>
+<body>
+    <div class="icon-bar">
+        <a href="#" class="active"><i class="fas fa-home"></i></a>
+        <a href="#"><i class="fas fa-tools"></i></a>
+        <a href="#"><i class="fas fa-paint-roller"></i></a>
+        <a href="#"><i class="fas fa-fire-extinguisher"></i></a>
+        <a href="#"><i class="fas fa-user"></i></a>
+    </div>
+</body>
+</html>
