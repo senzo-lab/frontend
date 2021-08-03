@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggable Tabs</title>
+
+    <!-- Styling -->
+    <style>
+        /* tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+        /* buttons */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        /* hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+            border-top: none;
+            animation: fadeEffect 1s;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <!-- Tab Links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'CapeTown')" id="defaultOpen">Cape Town</button>
+        <button class="tablinks" onclick="openCity(event, 'Durban')">Durban</button>
+        <button class="tablinks" onclick="openCity(event, 'Johanneburg')">Johanneburg</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="CapeTown" class="tabcontent">
+        <h3>Cape Town</h3>
+        <p>Cape Town is the capital of Western Cape Province</p>
+    </div>
+
+    <div id="Durban" class="tabcontent">
+        <h3>Durban</h3>
+        <p>Durban is a coastal city located in KwaZulu-Natal Province</p>
+    </div>
+
+    <div id="Johanneburg" class="tabcontent">
+        <h3>Johanneburg</h3>
+        <p>Johanneburg is the economic hub of South Africa and located in Gauteng Province</p>
+    </div>
+
+
+    <!-- js -->
+    <script>
+        // open default tab
+        document.getElementById("defaultOpen").click();
+
+        // handle tabs
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+
+            // get all tabcontents and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for(i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // get all tablinks and remove active class
+            tablinks = document.getElementsByClassName("tablinks");
+            for(i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active","");
+            }
+
+            // show current tab, add "active" class to button than oppened tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
