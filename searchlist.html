@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search List</title>
+
+    <link rel="stylesheet" href="../fontawesome-free-5.15.3-web/css/all.css">
+    <!-- style -->
+    <style>
+        body {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        #myInput{
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 20px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myUL {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #myUL li a {
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+        }
+
+        #myUL li a:hover:not(.header) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for DJs..">
+
+    <ul id="myUL">
+        <li><a href="#">Bekzin Terris</a></li>
+        <li><a href="#">Black Coffee</a></li>
+
+        <li><a href="#">Culoe De Song</a></li>
+
+        <li><a href="#">DJ Fresh</a></li>
+        <li><a href="#">DJ Shimza</a></li>
+
+        <li><a href="#">Euphonik</a></li>
+        <li><a href="#">Enoo Napa</a></li>
+
+        <li><a href="#">Mobi Dixon</a></li>
+    </ul>
+
+    <script>
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName('li');
+
+            // hide elements that dont match
+            for(i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+
+                if(txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                }
+                else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
