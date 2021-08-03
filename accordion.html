@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion | Collapsible Content</title>
+
+    <!-- style -->
+    <style>
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+        /* button clicked or hover */
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+    </style>
+
+    
+</head>
+<body>
+    <!-- section 1 -->
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque corporis natus voluptas officiis voluptatibus? Numquam voluptates tempora provident eum odio rerum hic maiores voluptatum libero!</p>
+    </div>
+
+    <!-- section 2 -->
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati, in qui dolore quia facilis totam consequuntur reiciendis sed. Ratione atque corporis cum voluptatum, tempora assumenda.</p>
+    </div>
+
+    <!-- section 3 -->
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis minus est quia, aut nemo accusamus.</p>
+    </div>
+
+
+
+
+    <!-- js -->
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                // toggle "active" class to show this section is active
+                this.classList.toggle("active");
+
+                // Hide and show active panel
+                var panel = this.nextElementSibling;
+                
+                if(panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                }
+                else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
